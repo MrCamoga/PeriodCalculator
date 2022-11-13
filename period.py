@@ -23,14 +23,12 @@ def computePeriod(l):
 	si=0
 	for s in l:
 		if states[match]!=s:
-			m=0
 			while match>0:
+				m=0
 				for i in range(match):
 					if states[m]!=states[m+i]:
-						m=0
 						break
-					else:
-						m+=1
+					m+=1
 				else:
 					break
 				match-=1
