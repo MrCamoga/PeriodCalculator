@@ -19,12 +19,11 @@ class PeriodicList:
 def computePeriod(l):
 	match=0
 	period=0
-	states=[0]*STATESSIZE
+	states=[-1]*STATESSIZE
 	si=0
 	for s in l:
 		if states[match]!=s:
 			m=0
-			period=si+1
 			while match>0:
 				for i in range(match):
 					if states[m]!=states[m+i]:
@@ -35,7 +34,7 @@ def computePeriod(l):
 				else:
 					break
 				match-=1
-			period-=match
+			period=si+1-match
 		else:
 			match += 1
 			if match > MINMATCH and (match == len(states) or match > REPEATPERCENT*period):
